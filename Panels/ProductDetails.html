@@ -1,0 +1,231 @@
+<link rel="stylesheet" type="text/css" href="%%GLOBAL_CdnAppPath%%/javascript/jquery/themes/cupertino/ui.all.css?%%GLOBAL_JSCacheToken%%" />
+<link rel="stylesheet" type="text/css" media="screen" href="%%GLOBAL_productAttributesCssPath%%?%%GLOBAL_JSCacheToken%%" />
+<script type="text/javascript" src="%%GLOBAL_jQueryUIPath%%"></script>
+<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/jquery/plugins/jquery.form.js?%%GLOBAL_JSCacheToken%%"></script>
+<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/product.attributes.js?%%GLOBAL_JSCacheToken%%"></script>
+<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/jquery/plugins/jCarousel/jCarousel.js?%%GLOBAL_JSCacheToken%%"></script>
+%%SNIPPET_ProductImageZoomer%%
+
+<script type="text/javascript">//<![CDATA[
+var ThumbURLs = new Array();
+var ProductImageDescriptions = new Array();
+var CurrentProdThumbImage = %%GLOBAL_CurrentProdThumbImage%%;
+var ShowVariationThumb =false;
+var ProductThumbWidth = %%GLOBAL_ProductThumbWidth%%;
+var ProductThumbHeight =  %%GLOBAL_ProductThumbHeight%%;
+var ProductMaxZoomWidth = %%GLOBAL_ProductMaxZoomWidth%%;
+var ProductMaxZoomHeight =  %%GLOBAL_ProductMaxZoomHeight%%;
+var ProductTinyWidth = %%GLOBAL_ProductMaxTinyWidth%%;
+var ProductTinyHeight =  %%GLOBAL_ProductMaxTinyHeight%%;
+
+%%GLOBAL_ProdImageJavascript%%
+
+var ShowImageZoomer = %%GLOBAL_ShowImageZoomer%%;
+
+var productId = %%GLOBAL_ProductId%%;
+//]]></script>
+%%Discount.FreeShippingEligibility%%
+<div class="Block Moveable Panel PrimaryProductDetails" id="ProductDetails">
+    <div class="BlockContent">
+        %%GLOBAL_ProductDetailFlashMessages%%
+
+        <div class="ProductAside">
+            <div class="ProductThumbWrap">
+                <div class="ProductThumb" style="%%GLOBAL_HideProductThumb%%">
+                    %%GLOBAL_LightBoxImageJavascript%%
+                    %%SNIPPET_ProductThumbImage%%
+                </div>
+            </div>
+
+
+            <div style="margin:0 auto; %%GLOBAL_HideImageCarousel%%">
+                <a id="ImageScrollPrev" class="prev" href="#"><img src="%%GLOBAL_IMG_PATH%%/LeftArrow.png" alt="" width="20" height="20" /></a>
+
+                <div class="ProductTinyImageList">
+                    <ul>
+                        %%SNIPPET_ProductTinyImages%%
+                    </ul>
+                </div>
+
+                <a id="ImageScrollNext" class="next" href="#"><img src="%%GLOBAL_IMG_PATH%%/RightArrow.png" alt="" width="20" height="20" /></a>
+            </div>
+            <div style="%%GLOBAL_HideMorePicturesLink%%" class="SeeMorePicturesLink">
+                <a href="#" onclick="%%GLOBAL_TinyImageClickJavascript%% return false;" class="ViewLarger">%%GLOBAL_SeeMorePictures%%</a>
+            </div>
+            
+            
+        </div>
+        
+        <!-- Product Details Content -->
+
+        <div class="ProductMain">
+            
+            %%GLOBAL_ProductNameOptimizerScriptTag%%
+            <h1>%%GLOBAL_ProductName%%</h1>
+            %%GLOBAL_FacebookLikeButtonAbove%%
+            %%GLOBAL_FacebookLikeButtonBelow%%
+            %%GLOBAL_ProductNameOptimizerNoScriptTag%%
+            <div class="ProductDetailsGrid">
+
+                
+                
+                    <div class="DetailRow RetailPrice" style="display: %%GLOBAL_HideRRP%%">
+                        <span class="Label">%%LNG_RRP%%:</span>
+                        %%GLOBAL_RetailPrice%%
+                        %%GLOBAL_YouSave%%
+                    </div>
+
+                <div class="DetailRow ProductSKU" style="display: %%GLOBAL_HideSKU%%">
+                    <div class="Label">%%LNG_SKU%%:</div>
+                    <div class="Value">
+                        <span class="VariationProductSKU">
+                            %%GLOBAL_SKU%%
+                        </span>
+                    </div>
+                </div>
+                
+                <!--PXL Move and Customize for offline sales- catalog mode-->
+                <div class="DetailRow PriceRow" style="%%GLOBAL_HidePrice%%">
+                        <span class="Label">Price:</span>
+                        <div class="Value">
+                            <em class="ProductPrice VariationProductPrice">%%GLOBAL_ProductPrice%%</em>
+                            
+<script>
+    jQuery(document).ready(function($) {
+        if ($("#pxl_addtoCart").css('display') == 'none') {
+            $("#pxl_addtoCart_meassage").show();
+        }
+    });
+</script>
+
+<p id="pxl_addtoCart_meassage" style="display:none;margin-top:7px;">This Item is not currently available online.
+    <br>Please call 800-563-8938 to place your order. Thank you.</p>
+
+
+
+
+  
+                            %%GLOBAL_IncludingExcludingTax%%
+                        </div>
+                    </div>
+				<!--pxl_END-->
+                
+                
+                <div class="DetailRow" style="%%GLOBAL_HideVendorDetails%%">
+                    <div class="Label">%%LNG_Vendor%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_VendorName%%
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideBrandLink%%">
+                    <div class="Label">%%LNG_Brand%%:</div>
+                    <div class="Value">
+                        <a href="%%GLOBAL_BrandLink%%">%%GLOBAL_BrandName%%</a>
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideCondition%%">
+                    <div class="Label">%%LNG_Condition%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_ProductCondition%%
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideWeight%%">
+                    <div class="Label">%%LNG_Weight%%:</div>
+                    <div class="Value">
+                        <span class="VariationProductWeight">
+                            %%GLOBAL_ProductWeight%%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideRating%%">
+                    <div class="Label">%%LNG_Rating%%:</div>
+                    <div class="Value">
+                        <img src="%%GLOBAL_IMG_PATH%%/IcoRating%%GLOBAL_Rating%%.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideAvailability%%">
+                    <div class="Label">%%LNG_Availability%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_Availability%%
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="display: %%GLOBAL_HideShipping%%">
+                    <div class="Label">%%LNG_Shipping%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_ShippingPrice%%
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="%%GLOBAL_HideMinQty%%">
+                    <div class="Label">%%LNG_ProductMinQty%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_MinQty%% %%LNG_units%%
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="%%GLOBAL_HideMaxQty%%">
+                    <div class="Label">%%LNG_ProductMaxQty%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_MaxQty%% %%LNG_units%%
+                    </div>
+                </div>
+
+                <div class="DetailRow InventoryLevel" style="%%GLOBAL_HideCurrentStock%%">
+                    <div class="Label">%%GLOBAL_CurrentStockLabel%%:</div>
+                    <div class="Value">
+                        <span class="VariationProductInventory">
+                            %%GLOBAL_InventoryList%%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="DetailRow" style="%%GLOBAL_HideGiftWrapMessage%%">
+                    <div class="Label">%%LNG_GiftWrapping%%:</div>
+                    <div class="Value">
+                        %%GLOBAL_GiftWrappingAvailable%%
+                    </div>
+                </div>
+            </div>
+            %%SNIPPET_ProductAddToCartRight%%
+            %%SNIPPET_ProductExpectedReleaseDate%%
+            <div class="ProductDetailsGrid">    
+                <div class="WishlistRow DetailRow" style="display:%%GLOBAL_HidePurchasingOptions%%%%GLOBAL_HideWishlist%%">
+                    <a class="WishListButton" href="javascript: void(0)">Add to Wishlist</a>
+                </div>
+                %%Panel.SideProductAddToWishList%%
+                %%GLOBAL_AddThisLink%%
+                %%GLOBAL_PinterestButton%%
+            </div>
+            
+            
+            
+            <div class="clear"></div>
+            
+            %%Panel.ProductTabs%%
+            
+            <div id="prodAccordion">
+                %%Panel.ProductDescription%%
+                %%Panel.ProductVideos%%
+                %%Panel.ProductWarranty%%
+                %%Panel.ProductOtherDetails%%
+                %%Panel.SimilarProductsByTag%%
+                %%Panel.ProductByCategory%%
+                %%Panel.ProductVendorsOtherProducts%%
+                %%Panel.ProductReviews%%
+            </div>
+            
+        </div>
+
+        %%SNIPPET_ProductAddToCartBelow%%
+
+        <div class="clear"></div>
+    </div>
+</div>
+%%Panel.SimilarProductsByCustomerViews%%
+

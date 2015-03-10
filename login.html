@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+<!--<script>
+$(document).ready(function() {
+var pathName = window.location.href;
+var homePage = "%%GLOBAL_ShopPath%%";
+//alert(pathName);
+if(window.location.href.indexOf("login.php?action=logout") > -1) {
+deleteCookie("SHOP_SESSION_TOKEN");
+}
+});
+</script>-->
+<!--<script>
+function deleteCookie(name, path, domain) {
+  // If the cookie exists
+  if (getCookie(name))
+    createCookie(name, "", -1, path, domain);
+}
+</script>
+-->
+<!--<script>
+var delete_cookie = function(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
+</script>
+<script>
+$(document).ready(function() {
+var pathName = window.location.href;
+var homePage = "%%GLOBAL_ShopPath%%";
+//alert(pathName);
+if(window.location.href.indexOf("login.php?action=logout") > -1) {
+	delete_cookie('SHOP_SESSION_TOKEN');
+}
+});
+</script>
+
+
+-->
+
+
+
+<body>
+    <div id="Container">
+    %%Panel.Header%%
+
+    <div id="Wrapper">
+        %%Panel.WrapperBanner%%
+        %%Panel.LoginBreadcrumb%%
+        
+        
+        
+        
+        <div class="Content Widest" id="LayoutColumn1">
+            
+            %%Panel.LoginForm%%
+        </div>
+        <div class="clear"></div>
+    </div>
+    %%Panel.Footer%%
+</div>
+</body>
+</html>​

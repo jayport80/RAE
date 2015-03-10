@@ -1,0 +1,15 @@
+            <div id="SearchForm">
+                <form action="%%GLOBAL_ShopPath%%/search.php" method="get" onsubmit="return check_small_search_form()">
+                    <label for="search_query">%%LNG_Search%%</label>
+                    <input type="text" name="search_query" id="search_query" class="Textbox autobox" value="Search for a product" />
+                    <button type="submit" class="btn search"><span>Go</span></button>
+                </form><br>
+               <strong><a href="/search.php?mode=advanced">click for advanced search
+</a></strong>
+            </div>
+
+            <script type="text/javascript">
+                var QuickSearchAlignment = 'right';
+                var QuickSearchWidth = '232px';
+                lang.EmptySmallSearch = "%%LNG_EmptySmallSearch%%";
+            </script>

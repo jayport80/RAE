@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+<body><!--pages menu - pxl -->
+<div id="Container">
+    %%Panel.Header%%
+    <div id="Wrapper">
+        %%Panel.WrapperBanner%%
+        %%Panel.PageBreadcrumb%%
+     <div class="Left">
+            <div class="PagesMenuBox">%%Panel.PagesMenu%%</div>
+        </div>
+        <div class="Wide Content" id="LayoutColumn1">
+            <h1 class="title np">%%GLOBAL_PageTitle%%</h1>
+            %%Panel.PageContent%%
+            %%Panel.PageComments%%
+            %%Banner.BottomBanner%%
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    %%Panel.Footer%%    
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  var activeParent = $('#PageBreadcrumb li:nth-child(2)').find('a').attr('href');
+  
+
+  
+      $('.PagesMenuBox li a').each(function() {
+          
+        if ($(this).attr('href') ==  activeParent) {
+            
+                $(this).next('ul').addClass('subPages');
+            
+        }
+    });      
+    if ( $('.PagesMenuBox .subPages').size() != 0 ) {
+        $('.PagesMenuBox').html('<ul>'+$('.PagesMenuBox ul.subPages').html()+'</ul>');
+    }
+});
+</script>
+
+<!--googleMaps API Support Files-->
+<script src="https://maps.googleapis.com/maps/api/js?&sensor=false" type="text/javascript"></script>
+<script src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js" type="text/javascript"></script>
+<!--googleMaps Maps & Pano Config-->
+<script>
+ /********************************************
+  * Google Map with Driving Directions
+  *
+  *        _             _              _                         
+  * _ __  (_)__  __ ___ | |  ___   ___ (_)  ___  _ __    ___  ___ 
+  *| '_ \ | |\ \/ // _ \| | / __| / __|| | / _ \| '_ \  / __|/ _ \
+  *| |_) || | >  <|  __/| | \__ \| (__ | ||  __/| | | || (__|  __/
+  *| .__/ |_|/_/\_\\___||_| |___/ \___||_| \___||_| |_| \___|\___|
+  *|_|                                                            
+  *
+  * http://www.pixelscience.ca
+  *
+  *
+  * Copyright (c) 2014 - Pixel Science
+  *
+  *************************************/
+  
+  
+
+ var directionDisplay;
+ var directionsService = new google.maps.DirectionsService();
+ var markersArray = [];
+ var infowindows = new Array();
+ 
+ function initialize() {
+	 
+	 var styleArray3 = [{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"landscape","stylers":[{"color":"#f2f2f2"}]},{"featureType":"road","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]}];
+	 
+	var styleArray4 = [{"featureType":"landscape","stylers":[{"hue":"#F1FF00"},{"saturation":-27.4},{"lightness":9.4},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#0099FF"},{"saturation":-20},{"lightness":36.4},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00FF4F"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FFB300"},{"saturation":-38},{"lightness":11.2},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#9FFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]}];
+	
+	
+     directionsDisplay = new google.maps.DirectionsRenderer();
+     var getMap = new google.maps.LatLng(51.0428919,-114.0400344);
+     var mapOptions = {
+         center: getMap,
+         styles: styleArray3,
+         scrollwheel: false,
+         zoom: 15,
+         panControl: true,
+         zoomControl: true,
+         zoomControlOptions: {
+             style: google.maps.ZoomControlStyle.SMALL
+         },
+         mapTypeControl: true,
+         scaleControl: true,
+         streetViewControl: true,
+         overviewMapControl: true,
+         overviewMapControlOptions: {
+             opened: false
+         },
+         rotateControl: true,
+         disableDefaultUI: true,
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+     };
+
+     var map = new google.maps.Map(
+         document.getElementById("map_canvas"), mapOptions);
+     directionsDisplay.setMap(map);
+     directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+
+     var image = new google.maps.MarkerImage('', //add path for custom icon
+         new google.maps.Size(59.0, 43.0),
+         new google.maps.Point(0, 0),
+         new google.maps.Point(30.0, 25.0)
+     );
+
+     var marker = new google.maps.Marker({
+         optimized: false,
+         map: map,
+         title: 'Rae Dunphy Aromatics LTD.',
+         //icon: image,
+         animation: google.maps.Animation.DROP,
+         position: getMap
+     });
+     var boxText = document.createElement("div");
+	 boxText.className = "iWindow";
+     // using class above - boxText.style.cssText = "border: 1px solid black; border-radius:8px 8px 8px 8px; margin-top: 8px; background: black;padding:15px;color:white;width:300px;";
+
+     boxText.innerHTML = "Rae Dunphy Aromatics LTD.<br><br /><a style='color:#FFF; text-decoration:underline;' href='https://www.google.ca/maps/place/921+9+Ave+SE,+Calgary,+AB+T2G+0S5/@51.0428919,-114.0400344,17z/data=!3m1!4b1!4m2!3m1!1s0x53717aaebae25a23:0xc2e344afc4867a37' target='_blank'>Get Directions or larger map</a>";
+
+     var myOptions = {
+         content: boxText,
+         disableAutoPan: false,
+         maxWidth: 0,
+         pixelOffset: new google.maps.Size(-100,-5),
+         zIndex: null,
+         boxStyle: {
+             //background: "url('img/maps/tipbox.gif') no-repeat",
+             opacity: .85,
+             width: "175px"
+         },
+         closeBoxMargin: "14px -20px 0px 0px",
+         closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+         infoBoxClearance: new google.maps.Size(10, 10),
+         isHidden: false,
+         pane: "floatPane",
+         enableEventPropagation: false
+     };
+
+     var iWindow = new InfoBox(myOptions);
+
+     infowindows.push(iWindow); 
+	 iWindow.open(map, marker);
+     google.maps.event.addListener(marker, 'click', function () {
+         close_iWindow(); 
+         map.panTo(getMap);
+         iWindow.open(map, marker);
+     });
+     google.maps.event.addListener(map, 'click', function () {
+         close_iWindow();
+     });
+
+     function close_iWindow() {
+         for (var i = 0; i < infowindows.length; i++) {
+             infowindows[i].close();
+         }
+     }
+
+     markersArray.push(marker);
+
+     /* center marker on responsive browser */
+     var center;
+
+     function calculateCenter() {
+         center = map.getCenter();
+     }
+     google.maps.event.addDomListener(map, 'idle', function () {
+         calculateCenter();
+     });
+     google.maps.event.addDomListener(window, 'resize', function () {
+         map.setCenter(center);
+     });
+ }
+
+ function calcRoute() {
+     var start = document.getElementById("start").value;
+     var end = document.getElementById("end").value;
+     var request = {
+         origin: start,
+         destination: end,
+         travelMode: google.maps.DirectionsTravelMode.DRIVING
+     };
+     directionsService.route(request, function (response, status) {
+         if (status == google.maps.DirectionsStatus.OK) {
+             directionsDisplay.setDirections(response);
+             clearOverlays();
+             $(".infoBox").hide();
+             document.getElementById('directionsPanel').style.display = 'block';
+
+         }
+     });
+ }
+
+
+ function clearOverlays() {
+     if (markersArray) {
+         for (i in markersArray) {
+             markersArray[i].setMap(null);
+         }
+     }
+ }
+
+ function doClear(theText) {
+     if (theText.value == theText.defaultValue) {
+         theText.value = ""
+     }
+ }
+
+ function clearMap() {
+     document.getElementById('directionsPanel').style.display = 'none';
+ }
+
+
+ function printSelection(node) {
+
+     var content = node.innerHTML
+     var pwin = window.open('', 'print_content', 'width=620,height=400,scrollbars=yes');
+
+     pwin.document.open();
+     pwin.document.write('<html><style>.print{display:none;}</style><body onload="window.print()"><img src="/img/printHeader.gif" />' + content + '</body></html>');
+     pwin.document.close();
+
+     setTimeout(function () {
+         pwin.close();
+     }, 1000);
+
+ }
+ google.maps.event.addDomListener(window, "load", initialize);
+ </script>
+
+</body>
+</html>
+​

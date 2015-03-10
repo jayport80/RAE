@@ -1,0 +1,40 @@
+		<style type="text/css">.QuickViewBtn {background: #4f2683 !important;} .QuickViewBtn:hover {background: #aed577 !important;}</style>
+		<div id="AjaxLoading"><div id="ajax-loader"></div>&nbsp; %%LNG_LoadingPleaseWait%%</div>
+		%%GLOBAL_MaintenanceNotice%%
+
+		<div id="Outer">
+			<div id="Header">
+				%%Panel.TopMenu%%
+				
+				<div id="HeaderUpper">
+					<div id="Logo">
+						%%GLOBAL_HeaderLogo%%
+					</div>
+					
+					<!--<div id="HeaderRight" class="FloatRight">
+						<div class="phoneIcon"><span>CALL US</span> <strong>%%GLOBAL_StorePhoneNumber%%</strong></div>
+						%%Panel.HeaderSearch%%
+					</div>-->
+					
+					<div class="clear"></div>
+				</div>
+				<div id="HeaderLower">
+					<div class="Block" >
+						<div class="Block Panel BlockContent" id="Menu">
+							<ul>
+								<li class="First %%GLOBAL_ActivePageHomeClass%%"><a href="%%GLOBAL_ShopPathNormal%%/"><span>%%LNG_MainPage%%</span></a></li>
+             <li class="%%GLOBAL_ActivePageHomeClass%%"><a href="/our-company/"><span>Our Company</span></a></li>
+							
+                       <!--     <li class="%%GLOBAL_ActivePageHomeClass%%"><a href="/classroom/"><span>Classroom</span></a></li>-->
+                            <li class="%%GLOBAL_ActivePageHomeClass%%"><a href="/customer-care/"><span>Customer Care</span></a></li>
+                            <li class="%%GLOBAL_ActivePageHomeClass%%"><a href="/blog/"><span>Blog</span></a></li>
+                            <li class="%%GLOBAL_ActivePageHomeClass%%"><a href="/contact-us/"><span>Contact Us</span></a></li>
+         
+						</ul></div>
+					</div>
+					%%Panel.SideCategoryList%%
+
+					<div class="clear"></div>
+				</div>
+			</div>
+

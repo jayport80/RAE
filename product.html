@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/">
+%%Panel.HTMLHead%%
+<body>
+	<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/jquery/plugins/validate/jquery.validate.js?%%GLOBAL_JSCacheToken%%"></script>
+	<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/product.functions.js?%%GLOBAL_JSCacheToken%%"></script>
+	<script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/product.js?%%GLOBAL_JSCacheToken%%"></script>
+	<div id="Container" class="pxl_productPage">
+	%%Panel.Header%%
+
+	<div id="Wrapper">
+		%%Panel.WrapperBanner%%
+		<div class="Content Widest" id="LayoutColumn1">
+			%%Panel.ProductBreadcrumb%%
+			%%Panel.ProductDetails%%
+			%%Panel.SideProductRelated%%
+		</div>
+		<div class="clear"></div>
+	</div>
+	%%Panel.Footer%%
+</div>
+
+<script type="text/javascript">
+
+function removeTinyImageHighlight()
+{
+	CurrentProdThumbImage = 0;
+	$('.ProductTinyImageList li').attr('class', 'normal');
+	
+
+	//$('#TinyImageBox_' + CurrentProdThumbImage).css('border', '');
+	//$('#TinyImageBox_' + CurrentProdThumbImage + ' .TinyOuterDiv').css('border', '');
+}
+
+function highlightProductTinyImage(ThumbIndex)
+{
+	$('.ProductTinyImageList li').attr('class', 'normal');
+	//$('.ProductTinyImageList li .TinyOuterDiv').css('border', '2px solid white');
+
+	$('#TinyImageBox_'+ThumbIndex).attr('class', 'selected');
+	//$('#TinyImageBox_'+ThumbIndex+' .TinyOuterDiv').css('border', '2px solid #ff6600');
+}
+$(document).ready(function() {
+  		 var hash = window.location.hash;
+		 var searchUrl = window.location.search;
+  if (hash == '#write_review') {
+	   $('.WriteReviewBtn').hide();
+}
+  if (hash == '#write_review' || searchUrl == '?tab=ProductReviews') {
+	 
+	$('#ProductReviews > h2').trigger('click');  
+	var idCurr = $('.Block.current').attr('id');
+	  if (idCurr != 'ProductReviews') {
+		$('#ProductReviews > h2').trigger('click'); 
+		  $('html, body').animate({
+			scrollTop: ($("#write_review").offset().top -  $('.Block.current').height()) - 50
+		  }, 0); 
+	  } else {
+		  
+		  $('html, body').animate({
+			scrollTop: $("#write_review").offset().top -50
+		  }, 0);  
+	  }
+	
+	
+  }
+  $('.WriteReviewBtn').click(function() {
+	 $(this).hide();
+  	  var idCurr = $('.Block.current').attr('id');
+	  if (idCurr != 'ProductReviews') {
+		$('#ProductReviews > h2').trigger('click'); 
+		  $('html, body').animate({
+			scrollTop: $("#write_review").offset().top -  $('.Block.current').height()
+		  }, 0); 
+	  } else {
+		  $('html, body').animate({
+			scrollTop: $("#write_review").offset().top
+		  }, 0);  
+	  }
+	  
+	   
+	  
+	  return false;
+  });
+	
+	
+	
+});
+</script>
+
+
+</body>
+</html>

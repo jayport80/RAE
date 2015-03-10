@@ -1,0 +1,30 @@
+					%%GLOBAL_NewsletterBoxControlScript%%
+
+				<div class="Block NewsletterSubscription Moveable Panel" id="SideNewsletterBox">
+					%%GLOBAL_NewsletterHeaderOptimizerScriptTag%%
+					
+					
+					<h2>Our newsletter</h2>
+					<p>To receive updates, submit your name and email below:</p>
+					
+					%%GLOBAL_NewsletterBoxOptimizerNoScriptTag%%
+
+					<div class="BlockContent">
+						<form action="%%GLOBAL_ShopPath%%/subscribe.php" method="post" id="subscribe_form" name="subscribe_form">
+							<input type="hidden" name="action" value="subscribe" />
+							<label style="display: none" for="nl_first_name">Your Name:</label>
+							<input type="text" class="Textbox autobox" id="nl_first_name" name="nl_first_name" value="Name" />
+							
+							<input type="text" class="Textbox autobox" id="nl_email" value="Email Address" name="nl_email" />
+							%%GLOBAL_NewsletterButtonOptimizerScriptTag%%
+								
+								<button class="btn go" type="submit"><span>%%LNG_Subscribe%%</span></button>
+							%%GLOBAL_NewsletterBoxOptimizerNoScriptTag%%
+						</form>
+						
+						
+						
+					</div>
+					<div class="clear"></div>
+				</div>
+				%%Panel.NewsletterJavaScript%%

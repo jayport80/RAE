@@ -1,0 +1,60 @@
+%%GLOBAL_AddToCartButtonControlScript%%
+  <div id="pxl_addtoCart" style="display: %%GLOBAL_DisplayAdd%%" >
+<form method="post" action="%%GLOBAL_CartLink%%" onsubmit="return check_add_to_cart(this, %%GLOBAL_ProductOptionRequired%%) %%GLOBAL_FastCartButtonJs%%"  enctype="multipart/form-data" id="productDetailsAddToCartForm">
+    <input type="hidden" name="action" value="add" />
+    <input type="hidden" name="product_id" value="%%GLOBAL_ProductId%%" />
+    <input type="hidden" name="variation_id" class="CartVariationId" value="" />
+    <input type="hidden" name="currency_id" value="" />
+    <div class="ProductDetailsGrid ProductAddToCart">
+        %%SNIPPET_ProductFieldsList%%
+        <div class="ProductOptionList">
+            %%SNIPPET_VariationList%%
+        </div>
+        <div class="productAttributeList" style="%%GLOBAL_HideProductAttributeList%%">%%GLOBAL_ProductAttributeList%%</div>
+        %%SNIPPET_EventDate%%
+        
+        <div class="DetailRow" style="display: %%GLOBAL_DisplayAdd%%">
+            <div class="Label" style="display: %%GLOBAL_DisplayAddQty%%;">
+                <label>Quantity</label>
+            </div>
+            <div class="Value Quantity" style="display: %%GLOBAL_DisplayAddQty%%;">
+                <span class="AddCartButton">
+                %%GLOBAL_AddToCartQty%%
+                
+                </span>
+            </div>
+        </div>
+        
+
+        <div class="DetailRow" style="display: %%GLOBAL_DisplayAdd%%" >
+            
+            <div class="Value">
+                %%GLOBAL_AddToCartButtonOptimizerScriptTag%%
+                <input type="submit" class="btn btn-secondary AddCartButton" value="Add to Cart" />
+                %%GLOBAL_AddToCartButtonOptimizerNoScriptTag%%
+                <span style="display: %%GLOBAL_HideBulkDiscountLink%%;"><input type="button" class="btn" onclick="$.iModal({data: $('#ProductDetailsBulkDiscountThickBox').html(), width: 600}); return false;" value="%%LNG_BulkDiscountLink%%" /></span>
+            </div>
+        </div>    
+        
+    </div>
+</form>
+</div>
+
+
+<div class="OutOfStockMessage">
+    %%SNIPPET_SideAddItemSoldOut%%
+</div>
+
+%%GLOBAL_ProductBulkDiscountThickBox%%
+
+<script language="javascript" type="text/javascript">//<![CDATA[
+lang.OptionMessage = "%%GLOBAL_OptionMessage%%";
+lang.VariationSoldOutMessage = "%%LNG_VariationSoldOutMessage%%";
+lang.InvalidQuantity = "%%LNG_InvalidQuantity%%";
+lang.EnterRequiredField = "%%LNG_EnterRequiredField%%";
+lang.InvalidFileTypeJS = "%%LNG_InvalidFileTypeJS%%";
+var ShowAddToCartQtyBox = "%%GLOBAL_ShowAddToCartQtyBox%%";
+%%GLOBAL_ProductMinMaxQtyJavascript%%
+//]]></script>
+%%GLOBAL_EventDateJavascript%%
+​

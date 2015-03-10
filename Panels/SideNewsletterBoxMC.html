@@ -1,0 +1,68 @@
+
+<div class="Block NewsletterSubscription Moveable Panel" id="SideNewsletterBox">
+  <h2>Our newsletter</h2>
+    <p>To receive notice of exculsive sales, new products, recipes</p> 
+    <p>and more, sign up to recieve our monthly newsletter:</p>
+  <div class="BlockContent">
+    <form action="http://raedunphy.us8.list-manage.com/subscribe/post?u=e26236953160e20a91c5a76af&amp;id=060ebe7551" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+      <label style="display: none" for="nl_first_name">Your Name:</label>
+      <input type="text" class="Textbox autobox" id="nl_first_name" name="FNAME" value="Name" />
+      <div id="errorMsgN" style="display:none; position:relative; top:-7px;color:#fff;">please enter your name</div>
+      <input type="text" class="Textbox autobox" id="nl_email" value="Email Address" name="EMAIL" />
+      <div id="errorMsgE" style="display:none; position:relative; top:-7px;color:#fff;">please enter your email</div>
+      <div id="errorMsgEE" style="display:none; position:relative; top:-7px;color:#fff;">please enter a valid email, such as john@example.com.</div>
+      <p>
+        <input name="group[14217]" type="radio" id="mce-group[14217]-14217-0" value="1" checked>
+        <span> Retail Newsletter</span>
+        <input type="radio" value="2" name="group[14217]" id="mce-group[14217]-14217-1">
+        <span> Wholesale Newsletter</span></p>
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;">
+        <input type="text" name="b_e26236953160e20a91c5a76af_060ebe7551" tabindex="-1" value="">
+      </div>
+      <button class="btn go" type="submit"><span>%%LNG_Subscribe%%</span></button>
+    </form>
+  </div>
+  <div class="clear"></div>
+</div>
+<script>
+    // <!--
+    $('#mc-embedded-subscribe-form').submit(function() {
+        $("#errorMsgN").hide();
+        $("#errorMsgE").hide();
+        $("#errorMsgEE").hide();
+        $("#nl_email").css("background-color", "#FFF");
+        $("#nl_first_name").css("background-color", "#FFF");
+        if ($('#nl_first_name').val() == 'Name') {
+            $("#nl_first_name").css("background-color", "#FAFFBD");
+            $("#errorMsgN").show();
+            //alert('You forgot to type in your first name.');
+            $('#nl_first_name').focus();
+            return false;
+
+        }
+
+        if ($('#nl_email').val() == '') {
+            $("#nl_email").css("background-color", "#FAFFBD");
+            $("#errorMsgE").show();
+            //alert('You forgot to type in your email address.');
+            $('#nl_email').focus();
+            return false;
+
+        }
+
+        if ($('#nl_email').val().indexOf('@') == -1 || $('#nl_email').val().indexOf('.') == -1) {
+            $("#nl_email").css("background-color", "#FAFFBD");
+            $("#errorMsgEE").show();
+            //alert('Please enter a valid email address, such as john@example.com.');
+            $('#nl_email').focus();
+            //$('#nl_email').select();
+            return false;
+
+        }
+
+
+
+    });
+    // -->
+</script>

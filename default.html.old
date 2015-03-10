@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+<body>
+<div id="Container" class="pxl_homePage">
+    %%Panel.Header%%
+    <div id="Wrapper">
+        %%Banner.TopBanner%%
+        %%Panel.WrapperBanner%%
+        <div class="Content Widest" id="LayoutColumn1">
+            %%Panel.HomeSlideShow%%
+            <div class="clear"></div>
+            %%Discount.FreeShippingEligibility%%
+            
+			<div class="pxl_leftColumn">
+			%%Panel.HomeFeaturedProducts%%
+			</div> <!-- class=pxl_leftColumn -->
+			
+			<div class="pxl_rightColumn">
+				<div class="pxl_introTxt">
+					<h2>RAE’S PASSION</h2>
+					<p>Ut wisi enim ad minim veniam, nostrud exerci tation ullamcorper suscipit lobortis nisl  ut aliquip ex ea commodo consequat.</p>
+					<p>Ut wisi enim ad minim veniam, quis nostr exerci tation ullamcorper suscipit lobortis nisl minim veniam, quis ut aliquip ex ea commodo consequat.  Ut wisi enim ad minim veniam, quis nostr exerci tation ullamcorper suscipit lobortis nisl minim veniam, quis ut aliquip ex ea commodo consequat.</p>
+					<p>si enim ad minim veniam, quis nostr exerci tation ullamcorper st wisi enim ad minim veniam, nostrud exerci tation ullamcorper suscipit lobortis nisl  ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div> <!-- id=pxl_rightColumn -->
+			            
+			%%Banner.BottomBanner%%
+        </div> <!-- class=LayoutColumn1 -->
+        <div class="clear"></div>
+		
+		<div class="pxl_circleButtons">
+			<ul>
+			<li id="pxl_circleButtonNews"><a href="">Monthly News</a></li>
+			<li id="pxl_circleButtonClasses"><a href="">Upcoming Classes</a></li>
+			<li id="pxl_circleButtonComments"><a href="">Client Comments</a></li>
+			</ul>
+		</div> <!-- class=pxl_circleButtons -->
+		
+    </div> <!-- id=Wrapper -->
+    %%Panel.Footer%%
+</div>
+</body>
+</html>

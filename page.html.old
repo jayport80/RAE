@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+<body><!--pages menu - pxl -->
+<div id="Container">
+    %%Panel.Header%%
+    <div id="Wrapper">
+        %%Panel.WrapperBanner%%
+        %%Panel.PageBreadcrumb%%
+   <!--  <div class="Left">
+            <div class="PagesMenuBox">%%Panel.PagesMenu%%</div>
+        </div>-->
+        <div class="Wide Content" id="LayoutColumn1">
+            <h1 class="title np">%%GLOBAL_PageTitle%%</h1>
+            %%Panel.PageContent%%
+            %%Panel.PageComments%%
+            %%Banner.BottomBanner%%
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    %%Panel.Footer%%    
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  var activeParent = $('#PageBreadcrumb li:nth-child(2)').find('a').attr('href');
+  
+
+  
+      $('.PagesMenuBox li a').each(function() {
+          
+        if ($(this).attr('href') ==  activeParent) {
+            
+                $(this).next('ul').addClass('subPages');
+            
+        }
+    });      
+    if ( $('.PagesMenuBox .subPages').size() != 0 ) {
+        $('.PagesMenuBox').html('<ul>'+$('.PagesMenuBox ul.subPages').html()+'</ul>');
+    }
+});
+</script>
+</body>
+</html>
+​
